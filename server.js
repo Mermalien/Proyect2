@@ -9,13 +9,14 @@ app.use(express.json());
 
 //Aquí requerimos los controllers de los users
 const {
-    createUser,
+    createUser, loginUser
 } = require("./src/controllers/users");
 
 //Aquí requerimos los middlewares
 const{
     handleError,
     handleNotFound,
+    validateAuth,
 } = require("./src/middlewares");
 
 //Endpoints
@@ -25,6 +26,7 @@ app.post("/login", loginUser);
 //Middlewares
 app.use(handleNotFound);
 app.use(handleError);
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
