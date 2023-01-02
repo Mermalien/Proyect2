@@ -1,0 +1,24 @@
+{
+  "name": "29-12-2022",
+  "version": "1.0.0",
+  "description": "Implementar una API que permita a los usuarios registrarse y compartir\r enlaces web que consideren interesantes. Otros usuarios podrán votarlos si\r les gustan.",
+  "main": "index.js",
+  "scripts": {
+    "db": "node src/db/initDb.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "mysql2": "^2.3.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
