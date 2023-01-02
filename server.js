@@ -20,7 +20,7 @@ const{
 
 //Endpoints
 app.post("/registro", createUser);
-app.post("/login");
+app.post("/login", loginUser);
 
 //Middlewares
 app.use(handleNotFound);

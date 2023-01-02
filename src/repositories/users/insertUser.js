@@ -2,6 +2,7 @@ const getDb = require("../../db/getDb");
 
 const insertUser = async (user) => {
 
+  try {
     const {name, email, encryptedPassword, registrationCode} = user;
 
     const pool = getDb();
@@ -11,5 +12,9 @@ const insertUser = async (user) => {
         [name, email, encryptedPassword, registrationCode]
     );
     return insertId;
+
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 module.exports = insertUser;
