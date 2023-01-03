@@ -13,8 +13,8 @@ const populateDb = async () => {
 
         console.log(`Usuarios insertados correctamente`);
 
-        await pool.query(`INSERT INTO posts (title, url, description, userId) VALUES ("Consejos adiestramiento", "https://www.youtube.com/watch?v=Z5QIHkcGBxg", 1),
-        ("Cursos adiestramiento", "https://dalecan.com/", 2)`);
+        await pool.query(`INSERT INTO posts (userId, title, url, description) VALUES (1,"Consejos adiestramiento", "https://www.youtube.com/watch?v=Z5QIHkcGBxg", "Algunos consejos sobre adiestramiento de cachorros"),
+        (2, "Cursos adiestramiento", "https://dalecan.com/", "Info sobre cursos de adiestramiento")`);
 
         console.log(`Posts insertados correctamente`);
 
