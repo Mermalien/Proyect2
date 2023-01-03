@@ -9,7 +9,7 @@ app.use(express.json());
 
 //Aquí requerimos los controllers de los users
 const {
-    createUser, loginUser
+    createUser, loginUser, activateUser
 } = require("./src/controllers/users");
 
 //Aquí requerimos los middlewares
@@ -22,6 +22,7 @@ const{
 //Endpoints
 app.post("/registro", createUser);
 app.post("/login", loginUser);
+app.get("/activate/:registrationCode", activateUser);
 
 //Middlewares
 app.use(handleNotFound);
