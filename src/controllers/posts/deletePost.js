@@ -1,13 +1,17 @@
-const generateError = require("../../utils/generateError");
+const generateError = require("../../utils");
 const { selectPostById, deletePostById } = require("../../repositories/posts");
+const { postIdSchema } = require("../../utils");
 
 const deletePost = async (req, res, next) => {
   try {
     const { id } = req.params;
+
+    await postIdSchema.validateAsync(id);
+
     const post = await selectPostById(id);
 
     if (!post) {
-      generateError("El Post no existe", 400);
+      generateError("El Post no existe", 404);
 
       const loggurUserId = req.auth.id;
 

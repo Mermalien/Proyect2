@@ -1,9 +1,12 @@
 const { selectPostById, updatePostById } = require("../../repositories/posts");
-const generateError = require("../../utils/generateError");
+const { generateError } = require("../../utils");
+const { editPostSchema, postIdSchema } = require("../../schemas/posts");
 
 const editPost = async (req, res, next) => {
   try {
     const { id } = req.params;
+
+    await postIdSchema.validateAsync(id);
 
     const post = await selectPostById(id);
 
@@ -13,19 +16,15 @@ const editPost = async (req, res, next) => {
       const logguedUserId = req.auth.id;
 
       if (post.userId !== logguedUserId) {
-        generateError("No tienes permiso para edit este Post", 401);
+        generateError("No tienes permiso para editar este Post", 401);
       }
-      const { title, url, descripcion } = req.body;
 
-      if (!title && !url && !descripcion) {
-        generateError(
-          "Necesitas incluir un título, una url y una descripcion",
-          400
-        );
-      }
+      await editPostSchema.validateAsync(req.body);
 
       const updatedPost = { ...post, ...req.body };
+
       await updatePostById(updatedPost);
+
       res.status(200).send({ status: "ok", data: updatedPost });
     }
   } catch (error) {

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "db": "node src/db/initDb.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "populateDb": "node src/db/populateDb.js"
   },
   "keywords": [],
   "author": "",
