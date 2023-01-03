@@ -8,13 +8,9 @@ app.use(express.json());
 
 //Aquí requerimos los controllers de los users
 const {
-<<<<<<< HEAD
+  activateUser,
   createUser,
   loginUser,
-  activateUser,
-=======
-    createUser, loginUser, activateUser
->>>>>>> 58b67c190f8f3e06f8323a0c782110f08b4058fc
 } = require("./src/controllers/users");
 
 //Aquí requerimos los controllers de los post
@@ -25,6 +21,10 @@ const {
   editPost,
   getPost,
 } = require("./src/controllers/posts");
+
+// Aqui requerimos los controllers de los likes
+
+const { togglePostLike } = require("./src/controllers/likes");
 
 //Aquí requerimos los middlewares
 const {
@@ -41,10 +41,10 @@ app.get("/activate/:registrationCode", activateUser);
 // Endpoints Post
 
 //app.get("/posts", getPosts);
-app.get("/posts/:id", getPost);
-app.post("/posts", validateAuth, createPost);
-app.delete("/posts/:id", validateAuth, deletePost);
-app.put("/posts/:id", validateAuth, editPost);
+app.get("/posts/:idPost", getPost);
+app.post("/new", validateAuth, createPost);
+app.delete("/posts/:idPost", validateAuth, deletePost);
+app.post("/like:idPost", validateAuth, togglePostLike);
 
 //Middlewares
 app.use(handleNotFound);

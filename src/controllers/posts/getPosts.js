@@ -1,5 +1,5 @@
-const { selectPosts } = require("../../repositories/posts");
-const { filterPostsSchema } = require("../../schemas/posts");
+const { selectPosts } = require("../../repositories/post/selectPosts");
+const { filterPostsSchema } = require("../../schemas/posts/filterPostsSchema");
 
 const getPosts = async (req, res, next) => {
   try {

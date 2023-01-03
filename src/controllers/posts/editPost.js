@@ -1,4 +1,4 @@
-const { selectPostById, updatePostById } = require("../../repositories/posts");
+const { selectPostById, updatePostById } = require("../../repositories/post");
 const { generateError } = require("../../utils");
 const { editPostSchema, postIdSchema } = require("../../schemas/posts");
 

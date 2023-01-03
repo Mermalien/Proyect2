@@ -1,5 +1,5 @@
 const generateError = require("../../utils");
-const { selectPostById, deletePostById } = require("../../repositories/posts");
+const { selectPostById, deletePostById } = require("../../controllers/posts");
 const { postIdSchema } = require("../../utils");
 
 const deletePost = async (req, res, next) => {
