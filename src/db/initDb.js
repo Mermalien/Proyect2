@@ -20,7 +20,8 @@ async function main() {
             email VARCHAR(200) UNIQUE NOT NULL,
             password VARCHAR(200) NOT NULL,
             biografia VARCHAR(1500),
-            avatar VARCHAR(200)
+            avatar VARCHAR(200),
+            registrationCode VARCHAR(100)
         )`);
 
         await connection.query(`CREATE TABLE IF NOT EXISTS posts (
@@ -47,9 +48,6 @@ async function main() {
     } catch (error) {
         console.error(error.message);
     }finally{
-        if(connection){
-            connection.release();
-        }
 
         process.exit();
     }

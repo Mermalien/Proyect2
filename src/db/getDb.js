@@ -23,7 +23,7 @@ const getDb = ()=> {
                 timezone: 'Z',
             });
         }
-        return pool.getConnection(); 
+        return pool; 
 };
 
 module.exports = getDb;

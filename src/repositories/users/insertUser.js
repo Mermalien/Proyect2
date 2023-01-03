@@ -3,13 +3,13 @@ const getDb = require("../../db/getDb");
 const insertUser = async (user) => {
 
   try {
-    const {name, email, encryptedPassword, registrationCode} = user;
+    const {name, email, encryptedPass, registrationCode} = user;
 
     const pool = getDb();
 
     const [{insertId}] = await pool.query(
         "INSERT INTO users (name, email, password, registrationCode) VALUES(?, ?, ?, ?)",
-        [name, email, encryptedPassword, registrationCode]
+        [name, email, encryptedPass, registrationCode]
     );
     return insertId;
 
