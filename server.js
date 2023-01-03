@@ -8,9 +8,13 @@ app.use(express.json());
 
 //Aquí requerimos los controllers de los users
 const {
+<<<<<<< HEAD
   createUser,
   loginUser,
   activateUser,
+=======
+    createUser, loginUser, activateUser
+>>>>>>> 58b67c190f8f3e06f8323a0c782110f08b4058fc
 } = require("./src/controllers/users");
 
 //Aquí requerimos los controllers de los post
@@ -32,6 +36,7 @@ const {
 //Endpoints Users
 app.post("/registro", createUser);
 app.post("/login", loginUser);
+app.get("/activate/:registrationCode", activateUser);
 
 // Endpoints Post
 
