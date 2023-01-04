@@ -1,9 +1,9 @@
 const getDb = require("../../db/getDb");
 
-const deletePostById = async (id) => {
+const deletePostById = async (idPost) => {
   const pool = getDb();
 
-  await pool.query("DELETE FROM posts WHERE id = ?", [id]);
+  await pool.query("DELETE FROM posts WHERE id = ?", [idPost]);
 };
 
 module.exports = deletePostById;
