@@ -1,14 +1,14 @@
+const { selectPostById } = require("../../repositories/post");
 const { postIdSchema } = require("../../schemas/posts");
-const { selectPostById } = require("../../repositories/posts");
 const { generateError } = require("../../utils");
 
 const getPost = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const { idPost } = req.params;
 
-    await postIdSchema.validateAsync(id);
+    await postIdSchema.validateAsync(idPost);
 
-    const post = await selectPostById(id);
+    const post = await selectPostById(idPost);
 
     if (!post) {
       generateError("El Post no existe", 404);

@@ -1,25 +1,26 @@
+const { selectPostById, deletePostById } = require("../../repositories/post");
 const generateError = require("../../utils");
-const { selectPostById, deletePostById } = require("../../controllers/posts");
 const { postIdSchema } = require("../../utils");
 
 const deletePost = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const { idPost } = req.params;
 
-    await postIdSchema.validateAsync(id);
+    await postIdSchema.validateAsync(idPost);
 
-    const post = await selectPostById(id);
+    const post = await selectPostById(idPost);
 
     if (!post) {
       generateError("El Post no existe", 404);
-
-      const loggurUserId = req.auth.id;
-
-      if (post.userId !== loggurUserId) {
-        generateError("No puedes borrar un post que no sea tuyo!", 401);
-      }
-      await deletePostById(id);
     }
+
+    const loggurUserId = req.auth.id;
+
+    if (post.userId !== loggurUserId) {
+      generateError("No puedes borrar un post que no sea tuyo!", 401);
+    }
+
+    await deletePostById(idPost);
     res
       .status(200)
       .send({ status: "ok", message: "Tu post se ha borrado correctamente" });
