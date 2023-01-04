@@ -17,6 +17,7 @@ const createPost = async (req, res, next) => {
     const insertPostId = await insertPost({
       title,
       url,
+      descripcion,
       userId,
     });
 
