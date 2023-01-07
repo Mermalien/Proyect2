@@ -42,7 +42,7 @@ app.get("/activate/:registrationCode", activateUser);
 
 //app.get("/posts", getPosts);
 app.get("/posts/:idPost", getPost);
-app.post("/new", validateAuth, createPost);
+app.post("/new/:userId", validateAuth, createPost);
 app.delete("/posts/:idPost", validateAuth, deletePost);
 app.post("/like:idPost", validateAuth, togglePostLike);
 

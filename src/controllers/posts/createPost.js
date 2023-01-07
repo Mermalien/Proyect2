@@ -1,7 +1,7 @@
 //const jwt = require("jsonwebtoken");
 const generateError = require("../../utils/generateError");
 const { insertPost } = require("../../repositories/post/insertPost");
-const { createPostSchema } = require("../../schemas/posts/createPostSchema");
+const { createPostSchema } = require("../../schemas/posts");
 
 const createPost = async (req, res, next) => {
   try {
@@ -9,15 +9,15 @@ const createPost = async (req, res, next) => {
 
     await createPostSchema.validateAsync(req.body);
 
-    const { title, url, descripcion } = req.body;
+    const { title, url, description } = req.body;
 
-    if (!title || !url || !descripcion) {
+    if (!title || !url || !description) {
       generateError("Título, Url  y descrpción son obligatorios", 400);
     }
     const insertPostId = await insertPost({
       title,
       url,
-      descripcion,
+      description,
       userId,
     });
 
