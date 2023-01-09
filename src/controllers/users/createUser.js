@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const uuid = require("uuid");
 
-const {generateError} = require("../../utils");
+const {generateError, sendMail} = require("../../utils");
 
 const {selectUserByEmail, insertUser} = require("../../repositories/users");
 
@@ -28,6 +28,8 @@ const createUser = async (req, res, next) => {
 
         //Insertar los datos del user en la BBDD
         const insertId = await insertUser({name, email, encryptedPass, registrationCode});
+
+        await sendMail("Bienvenido a apiWeb", `<p>Gracias por registrarte, te enviamos un código de activación :)</p> <a href="http://localhost:8080/activate/${registrationCode}">Activa tu cuenta</a>`, email);
 
         res.status(201).send({status: "Ok", data: {id: insertId, name, email}});
 
