@@ -1,15 +1,14 @@
 const getDb = require("../../db/getDb");
-//const { description } = require("../../schemas/users/createUserSchema");
 
 const insertPost = async (post) => {
   try {
-    const { titulo, descripcion, url, userId } = post;
+    const { title, description, url, userId } = post;
 
     const pool = getDb();
 
     const [{ insertId }] = await pool.query(
-      "INSERT INTO posts (titulo, description, url, userId) VALUES (?, ?, ?, ?)",
-      [titulo, descripcion, url, userId]
+      "INSERT INTO posts (title, description, url, userId) VALUES (?, ?, ?, ?)",
+      [title, description, url, userId]
     );
 
     return insertId;

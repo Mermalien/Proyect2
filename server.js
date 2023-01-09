@@ -20,6 +20,7 @@ const {
   deletePost,
   editPost,
   getPost,
+  getPosts,
 } = require("./src/controllers/posts");
 
 // Aqui requerimos los controllers de los likes
@@ -40,11 +41,11 @@ app.get("/activate/:registrationCode", activateUser);
 
 // Endpoints Post
 
-//app.get("/posts", getPosts);
+app.get("/posts", getPosts);
 app.get("/posts/:idPost", getPost);
-app.post("/new/:userId", validateAuth, createPost);
+app.post("/new", validateAuth, createPost);
 app.delete("/posts/:idPost", validateAuth, deletePost);
-app.post("/like:idPost", validateAuth, togglePostLike);
+app.post("/like/:idPost", validateAuth, togglePostLike);
 
 //Middlewares
 app.use(handleNotFound);

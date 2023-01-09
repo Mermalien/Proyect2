@@ -1,7 +1,7 @@
 //const jwt = require("jsonwebtoken");
 const generateError = require("../../utils/generateError");
-const { insertPost } = require("../../repositories/post/insertPost");
 const { createPostSchema } = require("../../schemas/posts");
+const { insertPost } = require("../../repositories/post");
 
 const createPost = async (req, res, next) => {
   try {

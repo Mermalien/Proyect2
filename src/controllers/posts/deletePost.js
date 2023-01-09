@@ -1,12 +1,12 @@
 const { selectPostById, deletePostById } = require("../../repositories/post");
+const { postIdSchema } = require("../../schemas/posts");
 const generateError = require("../../utils");
-const { postIdSchema } = require("../../utils");
 
 const deletePost = async (req, res, next) => {
   try {
     const { idPost } = req.params;
 
-    await postIdSchema.validateAsync(idPost);
+    await postIdSchema.validateAsync(req.params);
 
     const post = await selectPostById(idPost);
 
