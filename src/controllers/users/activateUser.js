@@ -1,20 +1,20 @@
-const { selectUserByCode} = require("../../repositories/users");
+// const { selectUserByCode} = require("../../repositories/users");
 
-const { generateError } = require("../../utils");
+// const { generateError } = require("../../utils");
 
-const activateUser = async (req, res, next) => {
-    try {
-        const {registrationCode} = req.params;
-        const user = await selectUserByCode(registrationCode);
+// const activateUser = async (req, res, next) => {
+//     try {
+//         const {registrationCode} = req.params;
+//         const user = await selectUserByCode(registrationCode);
 
-        if(!user){
-            generateError("Código inválido o usuario ya registrado", 400);
-        }
+//         if(!user){
+//             generateError("Código inválido o usuario ya registrado", 400);
+//         }
 
-        res.status(200).send({status: "Ok", message: "Usuario activado correctamente!"});
-    } catch (error) {
-        next(error);
-    }
-};
+//         res.status(200).send({status: "Ok", message: "Usuario activado correctamente!"});
+//     } catch (error) {
+//         next(error);
+//     }
+// };
 
-module.exports = activateUser;
+// module.exports = activateUser;

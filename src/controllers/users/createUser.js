@@ -24,10 +24,10 @@ const createUser = async (req, res, next) => {
         const encryptedPass = await bcrypt.hash(password, 10);
 
         //Codigo de registro aleatorio
-        const registrationCode = uuid.v4();
+       // const registrationCode = uuid.v4();
 
         //Insertar los datos del user en la BBDD
-        const insertId = await insertUser({name, email, encryptedPass, registrationCode});
+        const insertId = await insertUser({name, email, encryptedPass});
 
         res.status(201).send({status: "Ok", data: {id: insertId, name, email}});
 

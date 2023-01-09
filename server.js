@@ -37,7 +37,7 @@ const {
 //Endpoints Users
 app.post("/registro", createUser);
 app.post("/login", loginUser);
-app.get("/activate/:registrationCode", activateUser);
+//app.get("/activate/:registrationCode", activateUser);
 
 // Endpoints Post
 

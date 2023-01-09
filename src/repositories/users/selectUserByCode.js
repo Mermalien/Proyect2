@@ -1,10 +1,10 @@
-const getDb = require("../../db/getDb");
+// const getDb = require("../../db/getDb");
 
-const selectUserByCode = async (registrationCode) => {
-    const pool = getDb();
+// const selectUserByCode = async (registrationCode) => {
+//     const pool = getDb();
 
-    const [[user]] = await pool.query("SELECT * FROM users WHERE registrationCode = ?", [registrationCode]);
-    return user;
-};
+//     const [[user]] = await pool.query("SELECT * FROM users WHERE registrationCode = ?", [registrationCode]);
+//     return user;
+// };
 
-module.exports = selectUserByCode;
+// module.exports = selectUserByCode;
