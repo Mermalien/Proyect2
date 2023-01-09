@@ -15,6 +15,10 @@ const loginUser = async (req, res, next) => {
             generateError("Email o contraseña incorrectos", 400);
         }
 
+        if(user.registrationCode){
+            generateError("Usuario sin activar");
+        }
+        
         const passOk = await bcrypt.compare(password, user.password);
         if(!passOk){
             generateError("Email o contraseña incorrectos", 400);
