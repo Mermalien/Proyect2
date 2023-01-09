@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "81999ede-2ce2-49e6-9e9f-214a5dc47bba",
+		"name": "Proyecto 2: ApiWeb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registro usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Filomena\",\n    \"email\": \"filomena@email.com\",\n    \"password\" : \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/registro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \n \"email\": \"filomena@email.com\",\n \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjcyODQ5MTI0LCJleHAiOjE2NzU0NDExMjR9.JEpL3iHcJXl8ge0qTadu0Qqi5HKfoy4qYfw5Y85cCkU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\" : \"Alimentacion Cachorro\",\n    \"url\": \"https://www.youtube.com/watch?v=bL71dEAgC1Q\",\n    \"descripcion\" : \"Consejos basicos para tu mascota\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjczMjU5MDIwLCJleHAiOjE2NzU4NTEwMjB9.m7mbZonqj46_s9_iihu0mof4gGkiibbwZlizKMbvQVI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/like/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"like",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjczMjU5MDIwLCJleHAiOjE2NzU4NTEwMjB9.m7mbZonqj46_s9_iihu0mof4gGkiibbwZlizKMbvQVI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/posts/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Enlaces",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
